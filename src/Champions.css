@@ -1,0 +1,20 @@
+.App {
+    text-align: left;
+    margin-left: 10%;
+    margin-top: -1.5%;
+    margin-bottom: -1.5%;
+    color:aliceblue;
+  }
+  
+  body{
+    background-color: rgb(67, 59, 94);
+  }
+  
+  .Parallax {
+    background-image: url("arcane.jpg");
+    min-height: 500px; 
+    background-attachment: fixed;
+    background-position: absolute;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }

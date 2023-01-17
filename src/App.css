@@ -1,38 +1,36 @@
 .App {
-  text-align: center;
+  text-align: left;
+  margin-left: 10%;
+  margin-top: -1.5%;
+  margin-bottom: -1.5%;
+  color:aliceblue;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body{
+  background-color: rgb(67, 59, 94);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.Parallax {
+  background-image: url("arcane.jpg");
+  min-height: 500px; 
+  background-attachment: fixed;
+  background-position: absolute;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.btn {
+  cursor: pointer;
+  border: 1px solid #667783;
+  background-color: transparent;
+  height: 50px;
+  width: 500px;
+  color: aliceblue;
+  font-size: 1em;
+  box-shadow: 0 6px 6px rgba(0, 0, 0, 0.6);
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+a:link{text-decoration: none; color: aliceblue}
+a:visited{text-decoration: none; color: aliceblue}
+a:hover {text-decoration: none; color: aliceblue}
+a:active{text-decoration: none; color: aliceblue}

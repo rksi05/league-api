@@ -1,21 +1,21 @@
 import React from 'react';
 
 const Colors=({data})=>{
-    return(
+    
+    var data1 = Object.entries(data)
+    console.log(data1)
+    return( 
         <>
           {
-            data && data.map((d)=>{
+            data && data1.map((d)=>{
                return(
-                    <div className="card" key={d.id} style={{background:d.color}}>
-                    <div className="container">
-                        <h4><b>{d.name}</b></h4> 
-                        <p>{d.color}</p> 
-                    </div>
-                    </div>
-               )
+                <div className="container">
+                <button class="btn"><a href="./Page.html"><b>✦ {d[0]}</b>: <i>{d[1].title} ✧</i></a></button>
+                <p>☽. _________________ .☾</p>
+                </div>)
            })
-          }
-        </>
+        }
+    </>
     )
 }
 
