@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Route, Link } from "react-router-dom";
-
+//my main page!
 const Colors=({data})=>{
     
     var data1 = Object.entries(data)
@@ -11,9 +11,8 @@ const Colors=({data})=>{
             data && data1.map((d)=>{
                return(
                 <div className="container">
-                
-                <button class="btn"><a href="./Page.html"><b>✦ {d[0]}</b>: <i>{d[1].title} ✧</i></a></button>
-                <p>☽. _________________ .☾</p>
+                <button class="btn"><b>✦ {d[0]}</b>: <i>{d[1].title} ✧</i></button>
+                <p>☽. ______________________________________________________ .☾</p>
                 </div>)
            })
         }

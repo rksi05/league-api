@@ -1,59 +1,105 @@
 import React,{useEffect,useState} from 'react';
 import "./Champions.css";
 import axios from 'axios';
+import { Card, Input, Image } from 'semantic-ui-react'
 
+// the search function/second page!!, 
+//source: https://www.freecodecamp.org/news/build-a-search-filter-using-react-and-react-hooks/ 
+// cards: https://react.semantic-ui.com/views/card/#types-card 
 
-const Champions = (/*{ data }*/) => {
-  
-  const [colorsData,setColorsData]=useState([])
+export default function Posts() {
+    const [colorsData,setColorsData]=useState([])
+    const [filteredResults, setFilteredResults] = useState([]);
+    const [searchInput, setSearchInput] = useState('');
     useEffect(()=>{
         axios.get('http://ddragon.leagueoflegends.com/cdn/12.6.1/data/en_US/champion.json')
             .then(res=>{
-                console.log('Response from main API: ',res.data.data)
                 setColorsData(res.data.data)
             })
             .catch(err=>{
                 console.log(err);
             })
     },[])
-    //var data1 = Object.entries(data);
 
-  //console.log(data)
-  return (
-    <>
-      <div className="Parallax">
-        <div className="App">
-          {/* <h1>{data[0]}</h1> */}
-          <h3>
-            {/* <i>{data[1].blurb}</i> */}
-          </h3>
-          {/* <img src={data[1].image.full}></img> */}
-          <h1>hi</h1>
-          <table>
-            <tr>
-              <th>Partype</th>
-              {/* <td>{data[1].partype}</td> */}
-            </tr>
-            <tr>
-              <th>Difficulty</th>
-              {/* <td>{data[1].info.difficulty}</td> */}
-            </tr>
-            <th>Base Armor (Per Lvl)</th>
-            <td>
-              {/* {data[1].stats.armor}({data[1].stats.armorperlevel}) */}
-            </td>
-            <tr>
-              <th>Attack Damage(Per Lvl)</th>
-              <td>
-                {/* {data[1].stats.attackdamage}(
-                {data[1].stats.attackdamageperlevel} */}
-              </td>
-            </tr>
-          </table>
+    const searchItems = (searchValue) => {
+        setSearchInput(searchValue)
+        if (searchInput !== '') {
+            const filteredData = data1.filter((item) => {
+                return Object.values(item).join('').toLowerCase().includes(searchInput.toLowerCase())
+            })
+            setFilteredResults(filteredData)
+        }
+        else{
+            setFilteredResults(colorsData)
+        }
+    }
+
+    var data1 = Object.entries(colorsData)
+    var data2 = Object.entries(filteredResults)
+    console.log(data1);
+    console.log(data2);
+    return (
+        <div className="Parallax">
+            <Input icon='search'
+                placeholder='Start typing...'
+                onChange={(e) => searchItems(e.target.value)}
+            />
+            <Card.Group style={{ marginTop: 20 }}>
+                {searchInput.length > 1 ? (
+                    data2.map((item) => {
+                        return (
+                            <Card>
+                                <Card.Content>
+                                    <Card.Header><b>{item[1][0]}</b>: <i>{item[1][1].title}</i></Card.Header>
+                                    <Card.Description>
+                                        <br></br><b>Blurb: </b> {item[1][1].blurb}
+                                        <br></br>
+                                        <br></br><b>Partype: </b> {item[1][1].partype}
+                                        <br></br>
+                                        <br></br><b>Class: </b> {item[1][1].tags[0]}, {item[1][1].tags[1]}
+                                        <br></br>
+                                        <br></br><b>Stats: </b>
+                                        <br></br>
+                                        <table>
+                                            <tr>
+                                                <td>Difficulty</td>
+                                                <td><i>{item[1][1].info.difficulty}</i></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Attack Damage</td>
+                                                <td><i>{item[1][1].stats.attackdamage}</i></td>
+                                            </tr>
+                                            <tr>
+                                                <td>HP</td>
+                                                <td><i>{item[1][1].stats.hp}</i></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Mana</td>
+                                                <td><i>{item[1][1].stats.mp}</i></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Movespeed</td>
+                                                <td><i>{item[1][1].stats.movespeed}</i></td>
+                                            </tr>
+                                            </table>
+                                        <p>☽. ________________________________________________________________________________________________________________________________________________ .☾</p>
+                                    </Card.Description>
+                                </Card.Content>
+                            </Card>
+                        )
+                    })
+                ) : (
+                    data1.map((item) => {
+                        return (
+                            <Card>
+                                <Card.Content>
+                                </Card.Content>
+                            </Card>
+                        )
+                    })
+                )}
+            </Card.Group>
+            
         </div>
-      </div>
-    </>
-  );
-};
-
-export default Champions;
+    )
+}

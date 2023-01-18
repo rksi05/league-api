@@ -1,6 +1,9 @@
 import React,{useEffect,useState} from 'react';
 import Colors from './Colors';
+import Champions from './Champions';
 import axios from 'axios';
+
+//gets the data from the api
 
 const Home=()=>{
     const [colorsData,setColorsData]=useState([])
