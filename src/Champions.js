@@ -12,7 +12,7 @@ export default function Posts() {
     const [filteredResults, setFilteredResults] = useState([]);
     const [searchInput, setSearchInput] = useState('');
     useEffect(()=>{
-        axios.get('http://ddragon.leagueoflegends.com/cdn/12.6.1/data/en_US/champion.json')
+        axios.get('http://ddragon.leagueoflegends.com/cdn/13.1.1/data/en_US/champion.json')
             .then(res=>{
                 setColorsData(res.data.data)
             })

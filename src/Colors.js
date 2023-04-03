@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Route, Link } from "react-router-dom";
+import { NavBar, Nav, NavLink, NavMenu } from "./NavbarElements";
 //my main page!
 const Colors=({data})=>{
     
@@ -11,7 +12,7 @@ const Colors=({data})=>{
             data && data1.map((d)=>{
                return(
                 <div className="container">
-                <button class="btn"><b>✦ {d[0]}</b>: <i>{d[1].title} ✧</i></button>
+                <button class="btn" ><b>✦ {d[0]}: </b><i>{d[1].title} ✧</i></button>
                 <p>☽. ______________________________________________________ .☾</p>
                 </div>)
            })

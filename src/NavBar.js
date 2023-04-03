@@ -1,6 +1,5 @@
 import React from "react";
-import { NavBar, Nav, NavLink, NavMenu } 
-    from "./NavbarElements";
+import { NavBar, Nav, NavLink, NavMenu } from "./NavbarElements";
 
 // my nav bar, see app.js for source
 

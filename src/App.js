@@ -15,7 +15,7 @@ function App() {
       <br></br>
       
       <header>
-      <h1>Welcome to the LOL Champion API!!</h1>
+      <h1>Welcome to the LoL Champion API</h1>
       </header>
       <Router>
         <NavBar />
